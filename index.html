@@ -101,6 +101,11 @@
    .dmatrix tr{page-break-inside:avoid;}
  }
 </style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#c8102e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
 <div class="wrap">
@@ -495,6 +500,13 @@ document.getElementById('btnPrint').addEventListener('click',()=>{
    .then(()=>setTimeout(()=>window.print(),120));
 });
 
+</script>
+<script>
+ if ('serviceWorker' in navigator) {
+   window.addEventListener('load', function () {
+     navigator.serviceWorker.register('sw.js');
+   });
+ }
 </script>
 </body>
 </html>
